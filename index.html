@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>h5Demo</title>
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .content{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .content video{
+            width: 100%;
+            height: 100%;
+        }
+        video::-internal-media-controls-download-button {
+            display:none;
+        }
+        video::-webkit-media-controls-enclosure {
+            overflow:hidden;
+        }
+        video::-webkit-media-controls-panel {
+            width: calc(100% + 30px);
+        }
+    </style>
+</head>
+<script></script>
+<body>
+<div class="content">
+    <video  poster="./img/timg.jpg">
+        <source src="./mp4/demo.mp4" type="video/mp4" />
+    </video>
+</div>
+</body>
+<script>
+    var video = document.getElementsByTagName("video")[0];
+    var playStatus = 0;
+    video.addEventListener("click",paly);
+    function paly() {
+        video.controls = true;
+        if(playStatus==0||video.ended){
+            playStatus =1;
+            video.play();
+        }else {
+            playStatus =0;
+            video.pause();
+        }
+    }
+</script>
+</html>
